@@ -114,19 +114,19 @@ class BlackJackGame:
 
     def getResult(self):
         playerScore = self.player.getPoints()
-        dealerScore = self.player.getPoints()
+        dealerScore = self.dealer.getPoints()
 
         if self.player.isBusted():
-            return -1
+            return "loss"
         elif self.dealer.isBusted():
-            return 1
+            return "win"
 
         if playerScore > dealerScore:
-            return 1
+            return "win"
         elif playerScore < dealerScore:
-            return -1
+            return "loss"
         else:
-            return 0
+            return "draw"
 
     def resetGame(self):
         self.player.resetHand()
